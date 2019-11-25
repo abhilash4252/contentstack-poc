@@ -139,7 +139,7 @@
 			</div>
 		</div>
 		<div class='framework-intro'>
-			{% set framework_intro = entry.info_groups[1].group %}
+			{% set framework_intro = entry.info_groups[0].group %}
 			<div class='container'>
 				<div class='row'>
 					<div class='col-md-4 pt-4'>
@@ -201,7 +201,7 @@
 			</div>
 		</div>
 		<section class='partnership-quote mb-5 mt-3'>
-			{% set framework_note = entry.info_groups[2].group %}
+			{% set framework_note = entry.info_groups[1].group %}
 			<h4>
 				{{framework_note.title_text}}
 				<br>
@@ -210,7 +210,7 @@
 			<p class='msg-txt-16'>{{framework_note.description[0]}}</p>
 		</section>
 		<section class='ready-to-start bg-pink-light mt-5 mb-0'>
-			{% set framework_quote = entry.info_groups[3].group %}
+			{% set framework_quote = entry.info_groups[2].group %}
 			<div class='container text-center'>
 				<h3 class='text-secondary font-weight-semibold'>
 					{{framework_quote.title_text}}
@@ -223,7 +223,7 @@
 			</div>
 		</section>
 	</div>
-
+ 
 	<script src='https://player.vimeo.com/api/player.js'></script>
 	<script>
 	  function scrollPageBy1px() {
