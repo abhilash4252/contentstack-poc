@@ -1,0 +1,207 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<!-- <section>
+  <div class="field">
+    <div class="key">Unique ID</div>
+    <div class="value">{{entry.uid}}</div>
+  </div>
+  
+			<div class='field'><div class='key'>Title</div><div class='value'>{{entry.title}}</div></div>
+			<div class='field'><div class='key'>URL</div><div class='value'>{{entry.url}}</div></div>
+			<div class='field'>
+			<div class='key'>Resources Header</div>
+				{% set entry_resources_header = entry.resources_header %}
+				{% for _entry_resources_header in entry_resources_header -%}
+					<div class='value'>{{_entry_resources_header.title}}</div>
+				{%- endfor %}
+			</div>
+			<div class='field'>
+			<div class='key'>Resources info</div>
+				{% set entry_resources_info = entry.resources_info %}
+				{% for _entry_resources_info in entry_resources_info -%}
+					<div class='value'>{{_entry_resources_info.title}}</div>
+				{%- endfor %}
+			</div>
+			<div class='field'>
+			<div class='key'>Resource Tiles</div>
+				{% set entry_resource_tiles = entry.resource_tiles %}
+				{% for _entry_resource_tiles in entry_resource_tiles -%}
+					<div class='value'>{{_entry_resource_tiles.title}}</div>
+				{%- endfor %}
+			</div>
+			<div class='field'>
+			<div class='key'>Resources Footer</div>
+				{% set entry_resources_footer = entry.resources_footer %}
+				{% for _entry_resources_footer in entry_resources_footer -%}
+					<div class='value'>{{_entry_resources_footer.title}}</div>
+				{%- endfor %}
+			</div>
+  <div class="note" style="margin: 50px 0 0;">
+    <div class="key">Note:</div>
+    <div class="value" style="width: 100%; font-size: 15px;"><i>Template automatically generated at "/Users/abhilash/contentstack/bc-website/themes/basic/templates/pages/resources/index.html"</i></div>
+  </div>
+</section> -->
+
+	{% set resource_banner= entry.resources_info[0].group %}
+	<div id='resources-page'>
+		<div class='resources-intro mt-2'>
+			<div class='container'>
+				<div class='row hero-resource pb-3 pl-5'>
+					<div class='col-md-5 pt-5'>
+						<div class='talks-video-thumbnail'>
+							<figure>
+								<img src={{getAssetUrl(resource_banner.file)}}
+							</figure>
+						</div>
+					</div>
+					<div class='col-md-7 pt-5 px-5 title'>
+						<h2 class='text-primary font-weight-bold'>
+							{{resource_banner.title_text}}
+						</h2>
+						<a class="btn btn-primary my-4 px-5 rounded" href={{resource_banner.link.href}} target= '_blank'>{{resource_banner.link.title}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class='resources-body pb-5 mt-5'>
+			<div class='container text-center'>
+				<h2 class='text-secondary font-weight-semibold mb-2 mt-2'>
+					Resources
+				</h2>
+			</div>
+			<!-- <div class='container' id='dropdown-container'>
+				<div class='dropdown show'>
+					<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle btn-select' data-toggle='dropdown' href='#' id='dropdownMenuLink' role='button'>
+						<span id='selected_category'>
+							Blog
+						</span>
+					</a>
+					<div aria-labelledby="dropdownMenuLink" class="dropdown-menu" role="menu">
+							<a class="dropdown-item" data-toggle="tab" href="#blog_articles">
+							Blog
+							</a>
+							<a class="dropdown-item" data-toggle="tab" href="#videos_articles">
+							Videos
+							</a>
+							<a class="dropdown-item" data-toggle="tab" href="#casestudies_articles">
+							Casestudies
+							</a>
+							<a class="dropdown-item" data-toggle="tab" href="#tools_articles">
+							Tools
+							</a>
+							</div>
+				</div>
+			</div> -->
+			<div class='container tab-content'>
+				{% for blog in entry.blogs %}
+					{% set blog_info = blog.group %}
+					<div class='blog-grid tab-pane active' id="blog_articles">
+						<div class='row'>
+							<div class="col-md-4">
+								<article class="blog-item mb-3 mt-3">
+									<a rel="canonical" href={{blog_info.link.href}} target="_blank">
+										<figure>
+											<img style="max-width: 100%;" alt="" src={{getAssetUrl(blog_info.file)}}>
+										</figure>
+										<div class="resource-tags mx-3">
+											<p class="mb-0">
+												Blog
+											</p>
+										</div>
+										<div class="resource-title mt-3 mx-3">
+											<h5 class="font-weight-bold">
+												{{blog_info.title_text}}
+											</h5>
+										</div>
+									</a>
+									<div class="resource-link m-3">
+										<a rel="canonical" href={{blog_info.link.href}} target="_blank"></a>
+										<a rel="canonical" href={{blog_info.link.href}} target="_blank">
+											<abbr title={{blog_info.title_text}}>Read Now</abbr>
+										</a>
+										<img alt="Arrow Right Icon" class="arrow-class" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt69c5eb5926408abb/5dd7c18aa1b665384d34523f/arrow-right.svg">
+									</div>
+								</article>
+							</div>	
+						</div>
+						<!-- <div class='container text-center'>
+								<a class='btn btn-primary pl-5 pr-5 font-weight-semibold load_more_articles' href='javascript:void(0)'>Load More</a>
+							</div>							 -->
+					</div>
+				{%- endfor %}	
+			</div>
+			<!-- <div class='container videos-wraper mt-1 text-center'>
+				<h2 class='text-secondary font-weight-semibold mb-2'>Tech Talks</h2>
+				<div class='video-grid pt-4'>
+					<div class='container'>
+						<div class='row pb-2 pt-2'>
+						</div>
+					</div>
+				</div>
+				<div class='container text-center'>
+					<a class='btn btn-primary pl-5 pr-5 font-weight-semibold' href='/talks'>See More</a>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<script>
+		function openModal(id) {
+    $("#" + id).modal('show');
+    $('#' + id).on('shown.bs.modal', function (e) {
+      $("#" + id + "_iframe").attr('src', "https://player.vimeo.com/video/" + id + "?autoplay=1"); 
+    })
+
+    $('#' + id).on('hide.bs.modal', function (e) {
+      $("#" + id + "_iframe").attr('src', ""); 
+    }) 
+  }
+
+  function init() {
+    //TO lazyload vimeo resources
+    var vidDefer = document.getElementsByTagName('iframe');
+    for (var i=0; i<vidDefer.length; i++) {
+      if(vidDefer[i].getAttribute('data-src')) {
+        vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+      }
+    }
+
+    //Dropdown active class handler
+    $('.dropdown-menu a').click(function(){
+      $(".dropdown-item.active").removeClass("active")
+      $('#selected_category').text($(this).text());
+      //Lazyload plugin doesn't load images in hidden tabs.
+      //To make that work we scroll the page by 0.1px on x-axis and 1px on y-axis
+      window.scrollBy(0.1, 1);
+    });
+
+    //Load more click handler
+    var categories = ["Blog", "Video", "Casestudies", "Tools"];
+    categories.forEach(function(category) {
+      var parentContainer = $("#" + category + "_articles");
+      var hiddenElementsContainer = parentContainer.find(".load-more-box.d-none");
+      var loadMoreButton = parentContainer.find(".load_more_articles");
+
+      if(hiddenElementsContainer.length == 0) {
+        loadMoreButton.hide()
+      }
+
+      loadMoreButton.on("click", function(e) {
+        e.preventDefault();
+        var hiddenElementsContainer = $(this).parent().parent().find(".load-more-box.d-none");
+        var loadMoreButton = $(this).parent().parent().find(".load_more_articles");
+
+        hiddenElementsContainer.slice(0, 9).removeClass("d-none");
+        if(hiddenElementsContainer.length <= 18 ) {
+          loadMoreButton.hide()
+        }
+        window.scrollBy(0.1, 1);
+      }) 
+    })
+  }
+
+  window.onload = init;
+	</script>
+{% endblock %}
+

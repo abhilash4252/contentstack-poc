@@ -1,0 +1,66 @@
+{# If you have a "Content Type" for footer in Contentstack then use get() view helper to retrieve footer entry. #}
+{# e.g. set footer = get("footer_content_type_id") #}
+{# And then render footer values using the {{footer.field_name}} #}
+
+{% set footer = get("footer") %}
+<footer class='main-footer'>
+    <div class='container'>
+      <div class='row footer-box'>
+        <div class='col-md-3'>
+          <a href="/">
+            <img class="company-logo" src=https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt9aa94a9139fd1d47/5ddb875b9a2f010c5859fad6/logo-text-white-fe959767ebb337bb798c5888d827eca58ebb271f88d8d963900012c0561b5a5c.svg />
+          </a>
+        </div>
+        <div class='col-md-12 col-lg-9'>
+          <div class='navbar-expand-lg'>
+            <div class='row justify-content-between footer-nav'>
+                {% for nav_link in footer.footer_nav[0].link %}
+                  <a class='nav-item nav-link col-12 col-md-2' href={{nav_link.href}}>{{nav_link.title}}</a>              
+                {%- endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='row hr'></div>
+      <div class='row'>
+        <div class='col-md-3 mr-auto'>
+          <ul class='list-inline text-left social-icons-list'>
+            <li class='list-inline-item'>
+              <a href="https://www.youtube.com/channel/UCnT3Xgtw4YJN9u4nCzb2ZXQ/videos" target= '_blank' rel= 'noreferrer'>
+                <img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt92df05ad389f074e/5ddb8f53219af50c0fd88040/icon-youtube-676731c7a0be6849d73eb1da19f58e262f561e9190ff56f0476363cf5fe5edd1.svg" />
+            </a>
+            </li>
+            <li class='list-inline-item'>
+              <a href="https://github.com/beautiful-code" target= '_blank' rel= 'noreferrer'>
+                <img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltb96c0b9185eef09a/5ddb8f53b27375167af28735/icon-github-d93ec2152f09a491f0515b3d6853c98dd55eff177aa73d6de874fdcaf72f0f46.svg" />
+              </a>
+            </li>
+            <li class='list-inline-item'>
+              <a href="https://www.linkedin.com/company/beautiful-code/" target= '_blank' rel= 'noreferrer'>
+                <img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltfbe56eecc984c31c/5ddb8f535cae970c38bc875a/icon-linkedin-ca204924a55d5aab1b2afdef64518173cb1326b71b38100f5738e5b78eb63d6c.svg" />
+              </a>
+            </li>
+            <li class='list-inline-item'>
+              <a href="https://twitter.com/beautifulcode_" target= '_blank' rel= 'noreferrer'>
+                <img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt7ea5cc59c66cdd95/5ddb8f53b680000c21901466/icon-twitter-727660fcad760cae96c54823f5c71f79ca4b4f215b588f7ba0c9c34c2b22f916.svg" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class='col-md-5 text-right ml-auto'>
+          {% for nav_link in footer.footer_nav[1].link %}
+            <a class='btn-link text-white mr-3' href={{nav_link.href}}>{{nav_link.title}}</a>              
+          {%- endfor %}
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-12 text-center'>
+          <p class='copyright-txt'>
+            <span>&copy;</span>
+            BeautifulCode Inc.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  

@@ -1,0 +1,294 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<!-- <section>
+  <div class="field">
+    <div class="key">Unique ID</div>
+    <div class="value">{{entry.uid}}</div>
+  </div>
+  
+			<div class='field'><div class='key'>Title</div><div class='value'>{{entry.title}}</div></div>
+			<div class='field'><div class='key'>URL</div><div class='value'>{{entry.url}}</div></div>
+			<div class='field'>
+			<div class='key'>Header</div>
+				{% set entry_header = entry.header %}
+				{% for _entry_header in entry_header -%}
+					<div class='value'>{{_entry_header.title}}</div>
+				{%- endfor %}
+			</div>
+			<div class='field'>
+			<div class='key'>Info groups</div>
+				{% set entry_info_groups = entry.info_groups %}
+				{% for _entry_info_groups in entry_info_groups -%}
+					<div class='value'>{{_entry_info_groups.title}}</div>
+				{%- endfor %}
+			</div>
+			<div class='field'>
+			<div class='key'>Info Group Collections</div>
+				{% set entry_info_group_collections = entry.info_group_collections %}
+				{% for _entry_info_group_collections in entry_info_group_collections -%}
+					<div class='value'>{{_entry_info_group_collections.title}}</div>
+				{%- endfor %}
+			</div>
+			<div class='field'>
+			<div class='key'>Footer</div>
+				{% set entry_footer = entry.footer %}
+				{% for _entry_footer in entry_footer -%}
+					<div class='value'>{{_entry_footer.title}}</div>
+				{%- endfor %}
+			</div>
+  <div class="note" style="margin: 50px 0 0;">
+    <div class="key">Note:</div>
+    <div class="value" style="width: 100%; font-size: 15px;"><i>Template automatically generated at "/Users/abhilash/contentstack/bc-website/themes/basic/templates/pages/remote_eng_framework/index.html"</i></div>
+  </div>
+</section> -->
+
+
+<div class='remote-engineering-page'>
+		<div class='remote-engineering-intro'>
+			{%set intro = entry.intro %}
+			<div class='container'>
+				<div class='row'>
+					<div class='col-md-12 text-center'>
+						<h1 class='text-secondary font-weight-semibold mb-5 lead-htag'>
+							{{intro.heading}}
+						</h1>
+					</div>
+				</div>
+				<div class='row'>
+					<div class='col-md-12 col-lg-5'>
+						<div class='remote-engineering-intro-msg mt-2'>
+							{% for paragraph in intro.description.paragraph %}
+							<p class='msg-txt-16'>
+								{{paragraph}}
+							</p>
+							{%- endfor %}
+						</div>
+					</div>
+					<div class='col-md-7 text-center d-none d-lg-block'>
+						<div class='embed-container'>
+							<figure>
+								<iframe class='d-none sojern-testimonial-A' allow="autoplay; fullscreen" allowfullscreen data-src={{intro.vimeo_video_link.href}}></iframe>
+								<img class="d-none d-lg-block testi-a-hover img-fluid fit-to-backgorund" src={{getAssetUrl(intro.video_thumbnail)}} />
+								<a class='video-play-btn playVideo' href='#'>
+									<img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltbc2b420e7c520881/5dd7c18a3667ee3ad876bd9b/play.svg">
+								</a>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% set goals = entry.info_group_collections[0] %}
+		<div class='goals-and-values'>
+			<div class='container goals-of-the-framework'>
+				<div class='row'>
+					<div class='col-md-12 col-lg-6'>
+						<h3 class='text-secondary font-weight-semibold mb-3'>{{goals.title}}</h3>
+						<img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blta11ac090e05cf437/5ddbade5219af50c0fd880d8/backline.svg" class="backline" />
+						<ul class='p-0 mt-5'>
+							{% for goal in goals.info_groups %}
+							<li class='pb-2'>
+								<div class='row'>
+									<div class='col-2 pr-0'>
+										<img src={{getAssetUrl(goal.group.file)}} />
+									</div>
+									<div class='col-8 pl-0 ml-n2'>
+										<div class='row pt-1'>
+											<p class='msg-txt-18 font-weight-semibold'>{{goal.group.title_text}}</p>
+										</div>
+										<div class='row'>
+											<p class='msg-txt-16'>{{goal.group.description[0]}}</p>
+										</div>
+									</div>
+								</div>
+							</li>
+							{%- endfor %}
+						</ul>
+					</div>
+					{% set features = entry.info_group_collections[1] %}
+					<div class='col-md-12 col-lg-6'>
+						<h3 class='text-secondary font-weight-semibold mb-3'>
+							{{features.title}}
+						</h3>
+						<img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blta11ac090e05cf437/5ddbade5219af50c0fd880d8/backline.svg" class="backline" />
+						<ul class='p-0 mt-5'>
+							{% for feature in features.info_groups %}
+							<li class='pb-2'>
+								<div class='row'>
+									<div class='col-2 pr-0'>
+										<img src={{getAssetUrl(feature.group.file)}} />
+									</div>
+									<div class='col-8 pl-0 ml-n2'>
+										<div class='row pt-1'>
+											<p class='msg-txt-18 font-weight-semibold'>{{feature.group.title_text}}</p>
+										</div>
+										<div class='row'>
+											<p class='msg-txt-16'>
+												{{feature.group.description[0]}}
+											</p>
+										</div>
+									</div>
+								</div>
+							</li>
+							{%- endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='framework-intro'>
+			{% set framework_intro = entry.info_groups[1].group %}
+			<div class='container'>
+				<div class='row'>
+					<div class='col-md-4 pt-4'>
+						<div class='framework-intro-msg mt-5'>
+							<h3 class='text-secondary font-weight-semibold mb-3'>
+								{{framework_intro.title_text}}
+							</h3>
+							<p class='msg-txt-16 framework-intro-content'>
+								{{framework_intro.description[0]}}	
+							</p>
+						</div>
+					</div>
+					<div class='col-md-8 text-center'>
+						<figure>
+							<img src={{getAssetUrl(framework_intro.file)}} />
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='onboarding'>
+			<div class='container'>
+				<div class='framework-navigation row mt-4'>
+					<div class='container'>
+						<ul class='nav nav-tabs'>
+							<li class='col col-sm-6 col-md-3'>
+								<a class='preboard-link active nav_link' data-toggle="tab" href="#pre-boarding">
+									<img class='' src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltf130e2a34ded2345/5ddbc190b3ddda169b905bf8/tab-preboarding-active.png" />
+									<p>Pre Boarding</p>
+								</a>
+							</li>
+							<li class='col col-sm-6 col-md-3'>
+								<a class='onboard-link nav_link' data-toggle="tab" href="#on-boarding">
+									<img class='' src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltf0a095634a2ce112/5ddbc3380a6fc50c16d6ff66/tab-onboarding-active.png">
+									<p>On Boarding</p>
+								</a>
+							</li>
+							<li class='col col-sm-6 col-md-3'>
+								<a class='inflight-link nav_link' data-toggle="tab" href="#in-flight">
+									<img class='' src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltbfd1cd5bd838004e/5ddbc3389f4af30c22348436/tab-inflight-active.png">
+									<p>In Flight</p>
+								</a>
+							</li>
+							<li class='col col-sm-6 col-md-3'>
+								<a class='transfer-link nav_link' data-toggle="tab" href="#transfer">
+									<img class='' src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blta2317eeae68c9384/5ddbc3373e772e0c37400435/tab-transfer-active.png">
+									<p>Transfer</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class='tab-content'>
+					{% include "partials/preboarding_step.html" %}
+					{% include "partials/onboarding-step.html" %}
+					{% include "partials/inflight-step.html" %}
+					{% include "partials/transfer-step.html" %}
+				</div>
+			</div>
+		</div>
+		<section class='partnership-quote mb-5 mt-3'>
+			{% set framework_note = entry.info_groups[2].group %}
+			<h4>
+				{{framework_note.title_text}}
+				<br>
+				<img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blta11ac090e05cf437/5ddbade5219af50c0fd880d8/backline.svg" class="backline" />
+		</h4>
+			<p class='msg-txt-16'>{{framework_note.description[0]}}</p>
+		</section>
+		<section class='ready-to-start bg-pink-light mt-5 mb-0'>
+			{% set framework_quote = entry.info_groups[3].group %}
+			<div class='container text-center'>
+				<h3 class='text-secondary font-weight-semibold'>
+					{{framework_quote.title_text}}
+				</h3>
+				<h4 class='text-secondary mb-4'>
+					<br>
+					{% set button_link = framework_quote.button[0].button %}
+					<a class='btn btn-primary font-weight-semibold pl-5 pr-5' href={{button_link.href}}>{{button_link.title}}</a>
+				</h4>
+			</div>
+		</section>
+	</div>
+
+	<script src='https://player.vimeo.com/api/player.js'></script>
+	<script>
+	  function scrollPageBy1px() {
+    console.log("hi")
+    window.scrollBy(0.1, 1);
+  }
+  function init() {
+    //To lazyload vimeo resources
+    var vidDefer = document.getElementsByTagName('iframe');
+    for (var i=0; i<vidDefer.length; i++) {
+      if(vidDefer[i].getAttribute('data-src')) {
+        vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+      }
+    }
+
+    var videoPlayer = null;
+    $(".playVideo").click(function(e) {
+      e.preventDefault();
+      $container = $(this).parent();
+      $col = $container.parent().parent();
+      $row = $col.parent();
+      if($row.children().hasClass("col-lg-6")) {
+        $row.children().removeClass('col-lg-6').addClass('col-lg-12');
+        $col.siblings('.framework-step-guidelines').addClass('mt-3');
+      }
+      $playBtn = $container.find('a');
+      var $iframeEle = $container.find('iframe');//$('iframe.sojern-testimonial-' + ele);
+      var player = new Vimeo.Player($iframeEle[0]);
+      videoPlayer = player;
+      var $thumbnail = $($container.find('img')[0]);//$(".remote-engineering-intro figure img");
+
+      player.on('ended', function() {
+        $iframeEle.addClass('d-none');
+        $playBtn.removeClass('d-none');
+        $thumbnail.removeClass('d-none');
+        if($row.children().hasClass("col-lg-6")) {
+          $row.children().removeClass('col-lg-12').addClass('col-lg-6');
+          $col.siblings('.framework-step-guidelines').removeClass('mt-3');
+        }
+      });
+
+      player.on('pause', function() {
+        $playBtn.removeClass('d-none');
+      });
+
+      player.on('play', function() {
+        $iframeEle.removeClass('d-none');
+        $playBtn.addClass('d-none');
+        $thumbnail.addClass('d-none');
+      });
+
+      player.play();
+    });
+    $('a[data-toggle="tab"]').on('hidden.bs.tab', function (e) {
+      if(videoPlayer) videoPlayer.pause().then(function() {});
+    })
+  }
+  window.onload = init;
+	</script>	
+	<style>
+		.main-footer {
+			margin-top: 0px;
+		}
+	</style>
+{% endblock %}
+
+
+

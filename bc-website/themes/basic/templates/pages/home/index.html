@@ -1,0 +1,197 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<!-- <section>
+ 
+			<div class='field'>
+			<div class='key'>Recent Updates</div>
+				{% set entry_recent_updates = entry.recent_updates %}
+				{% for _entry_recent_updates in entry_recent_updates -%}
+					<div class='value'>{{_entry_recent_updates.title}}</div>
+				{%- endfor %}
+			</div>
+			<div class='field'>
+			<div class='key'>Footer</div>
+				{% set entry_footer = entry.footer %}
+				{% for _entry_footer in entry_footer -%}
+					<div class='value'>{{_entry_footer.title}}</div>
+				{%- endfor %}
+			</div>
+  <div class="note" style="margin: 50px 0 0;">
+    <div class="key">Note:</div>
+    <div class="value" style="width: 100%; font-size: 15px;"><i>Template automatically generated at "/Users/abhilash/contentstack/bc-website/themes/basic/templates/pages/home/index.html"</i></div>
+  </div>
+</section> -->
+
+<div id='home_page'>
+		{% set entry_blocks = entry.info_blocks %}	
+		{% set first_intro_block = entry_blocks[0].group %}
+		{%set lets_talk = first_intro_block.button[0].button %}
+		<section class='banner'>
+			<div class='container'>
+				<div class='row flex-md-row-reverse'>
+					<div class='col-md-7'>
+						<div class='banner-illustration' >
+							<img class="img-fluid" src={{getAssetUrl(first_intro_block.file)}} />
+						</div>
+					</div>
+					<div class='col-md-5'>
+						<div class='banner-msg'>
+							<h1>
+								<span class='text-secondary'>{{first_intro_block.title_text}}</span>
+							</h1>
+							{% for description in first_intro_block.description %}
+								<p>{{description}}</p>
+							{%- endfor %}
+						
+							<a class='btn btn-primary cta-btn' href={{lets_talk.href}}>{{lets_talk.title}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+			
+		{% set second_intro_block = entry.info_blocks[1].group %}
+		<section class='our-framework mb-0 pb-0'>
+			<div class='container d-lg-none'>
+				<div class='img-msg-block'>
+					<figure>
+						<img class="img-fluid" src={{getAssetUrl(second_intro_block.file)}} />
+					</figure>
+					<div class='img-msg-block-content'>
+						<h2 class='text-secondary font-weight-semibold'>{{second_intro_block.title_text}}</h2>
+						{% for description in second_intro_block.description %}
+							<p>{{description}}</p>
+						{%- endfor %}
+						<a class='' href={{second_intro_block.link.href}}>{{second_intro_block.link.title}}</a>
+					</div>
+				</div>
+			</div>
+			<div class='container d-none d-lg-block'>
+				<div class='img-msg-block'>
+					<figure>
+							<img class="img-fluid" src={{getAssetUrl(second_intro_block.file)}} />
+					</figure>
+					<div class='img-msg-block-content'>
+						<h2 class='text-secondary font-weight-semibold'>{{second_intro_block.title_text}}</h2>
+						{% for description in second_intro_block.description %}
+							<p>{{description}}</p>
+						{%- endfor %}
+						<a class='' href={{second_intro_block.link.href}}>{{second_intro_block.link.title}}</a>
+					</div>
+				</div>
+				<div class='row'>
+					<br>
+				</div>
+			</div>
+		</section>
+		{% set testimonial_1 = entry.testimonials[0].group %}
+		{% set testimonial_2 = entry.testimonials[1].group %}
+		<section class='testimonials pb-0 mb-0'>
+			<div class=''>
+				<h2 class='text-secondary font-weight-semibold text-center mb-5'>Customer Testimonials</h2>
+				<div class='container'>
+					<div class='row'>
+						<div class='col-md-6'>
+							<div class='testi-item testimonial-A'>
+								<figure class='overlay'>
+									<iframe class='d-none sojern-testimonial-A' data-src={{testimonial_1.link.href}}></iframe>
+									<img class = 'testi-a-hover fit-to-backgorund' src={{getAssetUrl(testimonial_1.file)}}/>
+									<a href='#' id='playTestimonialA'><img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltbc2b420e7c520881/5dd7c18a3667ee3ad876bd9b/play.svg"></a>
+								</figure>
+								<div class='testi-item-body'>
+									<h5 class='font-weight-medium text-secondary'>{{testimonial_1.title_text}}</h5>
+									<p>{{testimonial_1.description[0]}}</p>
+								</div>
+							</div>
+						</div>
+						<div class='col-md-6'>
+							<div class='testi-item testimonial-B testi-item-lower'>
+								<figure class='overlay'>
+									<iframe class='d-none sojern-testimonial-B' data-src={{testimonial_2.link.href}}></iframe>
+									<img class = 'testi-a-hover fit-to-backgorund' src={{getAssetUrl(testimonial_2.file)}}/>
+									<a href='#' id='playTestimonialB'><img src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltbc2b420e7c520881/5dd7c18a3667ee3ad876bd9b/play.svg"></a>
+								</figure>
+								<div class='testi-item-body'>
+									<h5 class='font-weight-medium text-secondary'>{{testimonial_2.title_text}}</h5>
+									<p>{{testimonial_2.description[0]}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{% set third_intro_block = entry.info_blocks[2].group %}
+		<section class='why-beautiful pt-0 mt-0'>
+			<div class='container'>
+				<div class='why-beautiful-body'>
+					<div class='row'>
+						<div class='col-md-11 offset-md-1'>
+							<div class='row'>
+								<div class='col-md-6'>
+									<h4 class='lead-36 mb-5'>{{third_intro_block.title_text}}</h4>
+									{% for description in third_intro_block.description %}
+									<p class='msg-txt-16 mb-4'>{{description}}</p>
+									{%- endfor %}
+									
+								</div>
+								<div class='col-md-6'>
+									<figure>
+											<img class="img-fluid" src={{getAssetUrl(third_intro_block.file)}} />
+									</figure>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+
+		
+		<script src='https://player.vimeo.com/api/player.js'></script>
+		<script>
+			function init() {
+				//TO lazyload vimeo resources
+				var vidDefer = document.getElementsByTagName('iframe');
+				for (var i=0; i<vidDefer.length; i++) {
+					if(vidDefer[i].getAttribute('data-src')) {
+						vidDefer[i].setAttribute('src',vidDefer[i].getAttribute('data-src'));
+					}
+				}
+			
+				["A","B"].forEach(function(ele) {
+					$("a#playTestimonial" + ele).click(function(e) {
+						e.preventDefault();
+			
+						var iframeEle = $('iframe.sojern-testimonial-' + ele);
+						var player = new Vimeo.Player(iframeEle[0]);
+						var playBtn = $("a#playTestimonial" + ele);
+						var figure = $("section.testimonials .testimonial-" + ele + " figure");
+						var thumbnail = $("section.testimonials .testimonial-" + ele + " img");
+			
+						iframeEle.removeClass('d-none');
+						playBtn.addClass('d-none');
+						figure.removeClass('overlay');
+						thumbnail.addClass('d-none');
+			
+						player.on('ended', function() {
+							iframeEle.addClass('d-none');
+							playBtn.removeClass('d-none');
+							figure.addClass('overlay');
+							thumbnail.removeClass('d-none');
+						});
+			
+						player.play();
+					});
+				});
+			}
+			
+			window.onload = init;
+		</script>
+	</div>
+	
+{% endblock %}
+

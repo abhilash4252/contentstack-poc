@@ -1,0 +1,102 @@
+{% set steps = entry.info_group_collections[3] %}
+<div class='tab-pane' id='on-boarding'>
+    <div class='container framework-step-intro'>
+      <div class='row video-row'>
+        {{steps.info_groups[0].group.description[0]}}
+      </div>
+    </div>
+    <div class='container'>
+        {% set step_1 = steps.info_groups[1].group %}
+        <div class='img-msg-block'>
+          <figure>
+            <img src={{getAssetUrl(step_1.file)}} />
+          </figure>
+          <img class="path path-onboard-1 d-none d-lg-block" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt8df1edd91025df54/5ddbcc64bc0c110c25116570/path-onboard-1.png"/>
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>
+              {{step_1.title_text}}
+            </h2>
+            <p class='text-secondary-light msg-txt-16'>
+              {{step_1.description[0]}}  
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='container'>
+        {% set step_2 = steps.info_groups[2].group %}
+        <div class='img-msg-block img-right'>
+          <figure>
+            <img src={{getAssetUrl(step_2.file)}} />
+          </figure>
+          <img class = "path path-onboard-2 d-none d-lg-block" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/bltfee9d024b543a7b8/5ddbcc636afb810c2d465b51/path-onboard-2.png" />
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>{{step_2.title_text}}</h2>
+            <p class='text-secondary-light msg-txt-16'>
+              {{step_2.description[0]}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='container'>
+          {% set step_3 = steps.info_groups[3].group %}
+        <div class='img-msg-block'>
+          <figure>
+            <img src={{getAssetUrl(step_3.file)}} />
+          </figure>
+          <img class = "path path-onboard-2 d-none d-lg-block" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blte46ccec4d5cd2163/5ddbcc643d222f0c421ef5e3/path-onboard-3.png" />
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>{{step_3.title_text}}</h2>
+            <p class='text-secondary-light msg-txt-16'>
+                {{step_3.description[0]}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='container'>
+          {% set step_4 = steps.info_groups[4].group %}
+        <div class='img-msg-block img-right'>
+          <figure>
+            <img src={{getAssetUrl(step_4.file)}} />
+          </figure>
+          <img class = "path path-onboard-3 d-none d-lg-block" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt7eebb9a83ddf5425/5ddbcc649f4af30c223484ac/path-onboard-4.png" />
+           
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>{{step_4.title_text}}</h2>
+            <p class='text-secondary-light msg-txt-16'>
+                {{step_4.description[0]}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='container'>
+          {% set step_5 = steps.info_groups[5].group %}
+        <div class='img-msg-block'>
+          <figure>
+              <img src={{getAssetUrl(step_5.file)}} />
+            </figure>
+            <img class = "path path-onboard-2 d-none d-lg-block" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt72bae5efb88a62e4/5ddbcc6468ad4d168cb357e6/path-onboard-5.png" />
+            
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>{{step_5.title_text}}</h2>
+            <p class='text-secondary-light msg-txt-16'>
+              {{step_5.description[0]}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='container'>
+          {% set step_6 = steps.info_groups[6].group %}
+        <div class='img-msg-block img-right'>
+          <figure>
+              <img src={{getAssetUrl(step_6.file)}} />
+            </figure>
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>{{step_6.title_text}}</h2>
+            <p class='text-secondary-light msg-txt-16'>
+              {{step_6.description[0]}}
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+  

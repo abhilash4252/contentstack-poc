@@ -1,0 +1,56 @@
+{% set steps = entry.info_group_collections[4] %}
+<div class='tab-pane' id='in-flight'>
+    <div class='container framework-step-intro'>
+      <div class='row video-row'>
+          {{steps.info_groups[0].group.description[0]}}
+      </div>
+    </div>
+ 
+    <div class='container'>
+        {% set step_1 = steps.info_groups[1].group %}
+        <div class='img-msg-block'>
+          <figure>
+            <img src={{getAssetUrl(step_1.file)}} />
+          </figure>
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>
+              {{step_1.title_text}}
+            </h2>
+            <p class='text-secondary-light msg-txt-16'>
+              {{step_1.description[0]}}  
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='container'>
+        {% set step_2 = steps.info_groups[2].group %}
+        <div class='img-msg-block img-right'>
+          <figure>
+            <img src={{getAssetUrl(step_2.file)}} />
+          </figure>
+          <img class = "path path-preboard-1 d-none d-lg-block" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt471cd626f16cc8e6/5ddbbe397819930c2c70983c/path-transfer-1.png" />
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>{{step_2.title_text}}</h2>
+            <p class='text-secondary-light msg-txt-16'>
+              {{step_2.description[0]}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='container'>
+          {% set step_3 = steps.info_groups[3].group %}
+        <div class='img-msg-block'>
+          <figure>
+            <img src={{getAssetUrl(step_3.file)}} />
+          </figure>
+          <img class = "path path-preboard-2 d-none d-lg-block" src="https://images.contentstack.io/v3/assets/blt4393bfb360e3c9a9/blt83166e18126c605b/5ddbbe393d222f0c421ef57f/path-transfer-2.png" />
+          <div class='img-msg-block-content'>
+            <h2 class='text-secondary font-weight-semibold lead-28'>{{step_3.title_text}}</h2>
+            <p class='text-secondary-light msg-txt-16'>
+                {{step_3.description[0]}}
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+  

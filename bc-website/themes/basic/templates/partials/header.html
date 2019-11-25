@@ -1,0 +1,30 @@
+{# If you have a "Content Type" for header in Contentstack then use get() view helper to retrieve header entry. #}
+{# e.g. set header = get("header_content_type_id") #}
+{# And then render header values using the {{header.field_name}} #}
+
+{% set header = get("header") %}
+<nav class='navbar navbar-expand-lg navbar-light navbar-main'>
+  <a class='navbar-brand' href="/">
+    <img src={{getAssetUrl(header.logo)}} alt={{header.logo.filename}} class="company-logo"/>
+  </a>
+  <button aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation' class='navbar-toggler' data-target='#navbarSupportedContent' data-toggle='collapse' type='button'>
+    <span class='navbar-toggler-icon'></span>
+  </button>
+  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+    <ul class='navbar-nav'>
+      {% for nav_link in header.nav_links[0].link %}
+      
+      <li class='nav-item'>
+        <a class='nav-link' href={{nav_link.href}}>{{nav_link.title}}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+  <div class='collapse navbar-collapse d-none d-lg-block' id='navbarSupportedContent'>
+      <ul class='navbar-nav mt-n3 mr-5 ml-auto'>
+        <li>
+          <a class='btn btn-primary cta-btn' href = {{header.lets_talk[0].lets_talk.href}}>{{header.lets_talk[0].lets_talk.title}}</a>
+        </li>
+      </ul>
+    </div>    
+</nav>
